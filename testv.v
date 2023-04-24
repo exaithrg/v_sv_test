@@ -89,4 +89,18 @@ end
 
 // cmos也是verilog关键字
 
+reg a24=1'b1;
+reg [0:2] b24=3'b001;
+wire [6:0] o24;
+
+assign o24={a24,{2{b24}}};
+
+initial begin
+    #24;
+    $display("%b",o24);
+end
+
+// output: 1001001
+// o24 = 7'b1001001
+
 endmodule
