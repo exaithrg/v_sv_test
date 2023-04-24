@@ -103,4 +103,15 @@ end
 // output: 1001001
 // o24 = 7'b1001001
 
+reg a25=1'b1;
+reg [-2:0] b25=3'b001;  // negative number is OK!!!
+wire [3:-3] o25;        // negative number is OK!!!
+
+assign o25={a25,{2{b25}}};
+
+initial begin
+    #58;
+    $display("%b",o25);
+end
+
 endmodule
