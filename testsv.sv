@@ -10,12 +10,18 @@ program test;
     end
 endprogram
 
+// foreach不需要定义变量，从左往右遍历
 program top;
     bit [3:0] data;
+    bit [0:3] data2;
     initial begin
         data = 4'h2;
+        data2 = 4'h2;
         foreach (data[i]) begin
             $display("data[%1d]=0x%0h",i,data[i]);
+        end        
+        foreach (data2[j]) begin
+            $display("data2[%1d]=0x%0h",j,data2[j]);
         end
     end
 endprogram
@@ -32,7 +38,7 @@ initial begin
 	foreach(md[i,j])
 		$display("md[%0d][%0d]=%0d",i,j,md[i][j]);
 	$display("New value: ");
-	md='{'{9,8,7},'{3{32'd5}}};//对数组最后三个元素赋值为5
+	md='{'{9,8,7},'{3{32'd5}}}; //对数组最后三个元素赋值为5
 	foreach(md[i,j])
 		$display("md[%0d][%0d]=%0d",i,j,md[i][j]);
 end
