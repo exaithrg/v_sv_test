@@ -2,3 +2,6 @@ work/
 *.mti
 *.mpf
 *.wlf
+*.vcd
+*.out
+

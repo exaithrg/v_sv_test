@@ -7,7 +7,7 @@ IVERILOG_FLAGS += -g2005-sv
 # +define+name=value
 
 all:
-	# find . -type f -regex ".*\.\(v\|sv\)" > ivfiles.f
+	find . -type f -regex ".*\.\(v\|sv\)" > ivfiles.f
 	$(IVERILOG) $(IVERILOG_FLAGS) -o $(TOPNAME).out -f ivfiles.f -s $(TOPNAME)
 
 # .PHONY: files
