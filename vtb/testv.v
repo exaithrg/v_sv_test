@@ -106,12 +106,16 @@ end
 reg a25=1'b1;
 reg [-2:0] b25=3'b001;  // negative number is OK!!!
 wire [3:-3] o25;        // negative number is OK!!!
+reg r25;
 
 assign o25={a25,{2{b25}}};
 
 initial begin
+    r25 = 1'b0;
     #58;
     $display("%b",o25);
+    r25 = o25[-3:-3];   //OK! r25=1'b1 now
+    #11;
 end
 
 endmodule
