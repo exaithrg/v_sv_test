@@ -64,3 +64,31 @@ end
 // 对于数组rev[6:2]来说foreach(rev[I])等同于for(int I=6;i>=2;i–)。
 
 endmodule
+
+`timescale 1ns/1ps
+
+module ts_fork;
+
+int k;
+int m;
+event eventA;
+
+initial begin
+    for (int i=0;i<=2;i++) begin
+        fork
+            begin
+                #i;
+            end
+            begin
+                m = $time;
+            end
+        join
+        ->eventA;
+    end
+end
+
+always @(eventA) begin
+    $display("%d",m);
+end
+
+endmodule
