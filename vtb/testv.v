@@ -118,4 +118,12 @@ initial begin
     #11;
 end
 
+reg [7:0] B_4;
+
+initial begin
+    B_4 = 8'bZ0;
+    #37;
+    $display("%b",B_4);
+end
+
 endmodule
